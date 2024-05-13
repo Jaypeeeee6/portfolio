@@ -11,26 +11,49 @@
             margin: 0;
             padding: 0;
             background-color: #f2f2f2; /* Light gray background color */
+            cursor: none; /* Hide default cursor */
         }
         .container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 20px;
+            opacity: 0; /* Initially hide container */
+            animation: fadeIn 1s ease forwards; /* Fade in animation */
+        }
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
         }
         /* Header Styles */
         header {
             background-color: #333;
             color: #fff;
-            padding: 10px 0;
+            padding: 20px 0;
             text-align: center;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            opacity: 0; /* Initially hide header */
+            animation: slideInTop 1s ease forwards 0.5s; /* Slide in from top animation with delay */
+        }
+        @keyframes slideInTop {
+            from {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
         header h1 {
-            font-size: 2rem;
-            margin-bottom: 5px;
+            font-size: 3rem;
+            margin-bottom: 10px;
         }
         header p {
-            font-size: 1.2rem;
+            font-size: 1.5rem;
         }
         /* Navigation Styles */
         nav {
@@ -49,6 +72,7 @@
         }
         nav a:hover {
             background-color: #777;
+            transform: scale(1.1);
         }
         nav a.active {
             background-color: #444; /* Color for the selected item */
@@ -57,14 +81,30 @@
         section {
             background-color: #fff;
             margin-bottom: 30px;
-            padding: 20px;
-            border-radius: 5px;
+            padding: 30px;
+            border-radius: 10px;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            opacity: 0; /* Initially hide sections */
+            animation: fadeInSection 1s ease forwards; /* Fade in sections */
+        }
+        @keyframes fadeInSection {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
         section h2 {
             color: #333;
-            margin-bottom: 10px;
+            margin-bottom: 20px;
             font-family: 'Montserrat', sans-serif; /* Custom font 'Montserrat' for section headings */
+        }
+        section p {
+            color: #666;
+            line-height: 1.6;
         }
         section ul {
             list-style-type: none;
@@ -72,31 +112,69 @@
             font-family: 'Open Sans', sans-serif; /* Custom font 'Open Sans' for section content */
         }
         section ul li {
-            margin-bottom: 5px;
+            margin-bottom: 10px;
+        }
+        /* Custom Cursor Styles */
+        .cursor {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            border: 2px solid #333; /* Add border for the cursor */
+            border-radius: 50%;
+            background-color: transparent; /* Set background color to transparent */
+            pointer-events: none; /* Allow clicks to pass through cursor */
+            z-index: 9999;
+            transform: translate(-50%, -50%);
+            transition: width 0.3s, height 0.3s, border-color 0.3s; /* Added border-color transition */
+        }
+        .cursor::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 4px;
+            height: 4px;
+            background-color: #333; /* Color of the dot */
+            border-radius: 50%;
+        }
+        /* Additional Styles for Animations and Interactivity */
+        .fade-in {
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out;
+        }
+        .slide-in {
+            transform: translateY(-50px);
+            transition: transform 0.5s ease-in-out;
+        }
+        .nav-link:hover {
+            background-color: #777;
+            transform: scale(1.1);
         }
     </style>
 </head>
 <body>
-    <header>
+    <div class="cursor"></div> <!-- Custom Cursor -->
+    <header class="fade-in slide-in">
         <h1>John Paul Bartolome</h1>
         <p>Fresh Graduate IT Student</p>
     </header>
     <nav>
-        <a href="#introduction">Introduction</a>
-        <a href="#education">Education</a>
-        <a href="#skills">Skills</a>
-        <a href="#projects">Projects</a>
-        <a href="#resume">Resume</a>
-        <a href="#contact">Contact</a>
+        <a href="#introduction" class="nav-link">Introduction</a>
+        <a href="#education" class="nav-link">Education</a>
+        <a href="#skills" class="nav-link">Skills</a>
+        <a href="#projects" class="nav-link">Projects</a>
+        <a href="#resume" class="nav-link">Resume</a>
+        <a href="#contact" class="nav-link">Contact</a>
     </nav>
     <div class="container">
-        <section id="introduction">
+        <section id="introduction" class="fade-in">
             <h2>Introduction</h2>
-            <p>Hello, I'm John Paul Bartolome, a fresh graduate in Information Technology. I am passionate about leveraging technology to solve real-world problems and constantly expanding my knowledge in the ever-evolving field of IT. I have a strong willingness to learn new technologies and methodologies, making me adaptable to various challenges.</p>
-            <p>I believe in the power of collaboration and am a dedicated team player. I enjoy working in diverse teams where each member's unique strengths contribute to achieving common goals efficiently and effectively.</p>
+            <p>Hello, I'm John Paul Bartolome, a fresh graduate in Information Technology. I am passionate about leveraging technology to solve real-world problems and constantly expanding my knowledge in the ever-evolving field of IT.</p>
+            <p>I have a strong willingness to learn new technologies and methodologies, making me adaptable to various challenges. I believe in the power of collaboration and am a dedicated team player.</p>
         </section>
         
-        <section id="education">
+        <section id="education" class="fade-in">
             <h2>Education</h2>
             <ul>
                 <li>Bachelor of Science in Information Technology</li>
@@ -104,7 +182,7 @@
                 <li>Any honors or achievements</li>
             </ul>
         </section>
-        <section id="skills">
+        <section id="skills" class="fade-in">
             <h2>Skills</h2>
             <ul>
                 <li>Programming languages (e.g., Java, Python)</li>
@@ -113,7 +191,7 @@
                 <li>Other relevant skills</li>
             </ul>
         </section>
-        <section id="projects">
+        <section id="projects" class="fade-in">
             <h2>Projects</h2>
             <ul>
                 <li>Project 1: Description</li>
@@ -121,11 +199,12 @@
                 <!-- Add more projects as needed -->
             </ul>
         </section>
-        <section id="resume">
+        <section id="resume" class="fade-in">
             <h2>Resume</h2>
-            <p><a href="https://drive.google.com/file/d/1O8cZ7MSHeA-EdjsDOxkkvzbuc_NXkFsj/view?usp=sharing" target="_blank">Click to open my resume!</a></p>
+            <p>Welcome to my resume section!</p>
+            <p>Feel free to click <a href="https://drive.google.com/file/d/1O8cZ7MSHeA-EdjsDOxkkvzbuc_NXkFsj/view?usp=sharing" target="_blank">here</a> to open my resume and learn more about my qualifications and experiences.</p>
         </section>
-        <section id="contact">
+        <section id="contact" class="fade-in">
             <h2>Contact Information</h2>
             <ul>
                 <li>Email: johnpaulbartolome30@gmail.com</li>
@@ -136,13 +215,41 @@
         </section>
     </div>
     <script>
-        // JavaScript to add active class to the selected navbar item
-        const navLinks = document.querySelectorAll('nav a');
+        // JavaScript for custom cursor and animations
+        document.addEventListener('DOMContentLoaded', function () {
+            const cursor = document.querySelector('.cursor');
+            document.addEventListener('mousemove', function (e) {
+                cursor.style.left = e.pageX + 'px'; // Use pageX instead of clientX
+                cursor.style.top = e.pageY + 'px'; // Use pageY instead of clientY
+            });
 
-        navLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                navLinks.forEach(link => link.classList.remove('active'));
-                link.classList.add('active');
+            const clickableElements = document.querySelectorAll('a, button, input[type="submit"]');
+            clickableElements.forEach(element => {
+                element.addEventListener('mouseenter', () => {
+                    cursor.style.width = '40px';
+                    cursor.style.height = '40px';
+                });
+                element.addEventListener('mouseleave', () => {
+                    cursor.style.width = '20px';
+                    cursor.style.height = '20px';
+                });
+            });
+
+            // Fade in sections on scroll
+            const sections = document.querySelectorAll('.fade-in');
+            const options = {
+                rootMargin: '-50px 0px', // Adjust based on your layout
+                threshold: 0.2
+            };
+            const sectionObserver = new IntersectionObserver(function(entries, observer) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                    }
+                });
+            }, options);
+            sections.forEach(section => {
+                sectionObserver.observe(section);
             });
         });
     </script>
