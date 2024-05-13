@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>John Paul Bartolome - Portfolio</title>
+    <style>
+        /* General Styles */
+        body {
+            font-family: 'Poppins', sans-serif; /* Custom font 'Poppins' */
+            margin: 0;
+            padding: 0;
+            background-color: #f2f2f2; /* Light gray background color */
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        /* Header Styles */
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 10px 0;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        header h1 {
+            font-size: 2rem;
+            margin-bottom: 5px;
+        }
+        header p {
+            font-size: 1.2rem;
+        }
+        /* Navigation Styles */
+        nav {
+            display: flex;
+            justify-content: center;
+            background-color: #555;
+            padding: 10px 0;
+        }
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            padding: 10px 20px;
+            margin: 0 10px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+        nav a:hover {
+            background-color: #777;
+        }
+        nav a.active {
+            background-color: #444; /* Color for the selected item */
+        }
+        /* Section Styles */
+        section {
+            background-color: #fff;
+            margin-bottom: 30px;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        section h2 {
+            color: #333;
+            margin-bottom: 10px;
+            font-family: 'Montserrat', sans-serif; /* Custom font 'Montserrat' for section headings */
+        }
+        section ul {
+            list-style-type: none;
+            padding: 0;
+            font-family: 'Open Sans', sans-serif; /* Custom font 'Open Sans' for section content */
+        }
+        section ul li {
+            margin-bottom: 5px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>John Paul Bartolome</h1>
+        <p>Fresh Graduate IT Student</p>
+    </header>
+    <nav>
+        <a href="#introduction">Introduction</a>
+        <a href="#education">Education</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#resume">Resume</a>
+        <a href="#contact">Contact</a>
+    </nav>
+    <div class="container">
+        <section id="introduction">
+            <h2>Introduction</h2>
+            <p>Hello, I'm John Paul Bartolome, a fresh graduate in Information Technology. I am passionate about leveraging technology to solve real-world problems and constantly expanding my knowledge in the ever-evolving field of IT. I have a strong willingness to learn new technologies and methodologies, making me adaptable to various challenges.</p>
+            <p>I believe in the power of collaboration and am a dedicated team player. I enjoy working in diverse teams where each member's unique strengths contribute to achieving common goals efficiently and effectively.</p>
+        </section>
+        
+        <section id="education">
+            <h2>Education</h2>
+            <ul>
+                <li>Bachelor of Science in Information Technology</li>
+                <li>Your University, Graduation Year</li>
+                <li>Any honors or achievements</li>
+            </ul>
+        </section>
+        <section id="skills">
+            <h2>Skills</h2>
+            <ul>
+                <li>Programming languages (e.g., Java, Python)</li>
+                <li>Web development (HTML, CSS, JavaScript)</li>
+                <li>Database management (SQL, MongoDB)</li>
+                <li>Other relevant skills</li>
+            </ul>
+        </section>
+        <section id="projects">
+            <h2>Projects</h2>
+            <ul>
+                <li>Project 1: Description</li>
+                <li>Project 2: Description</li>
+                <!-- Add more projects as needed -->
+            </ul>
+        </section>
+        <section id="resume">
+            <h2>Resume</h2>
+            <p><a href="file:///C:/Users/Jaypee/Downloads/John-Paul-Bartolome-CV.pdf" target="_blank">Download Resume PDF</a></p>
+        </section>
+        <section id="contact">
+            <h2>Contact Information</h2>
+            <ul>
+                <li>Email: johnpaulbartolome30@gmail.com</li>
+                <li>Phone: +63 915 942 5146</li>
+                <li>LinkedIn: linkedin.com/yourprofile</li>
+                <!-- Add other contact details -->
+            </ul>
+        </section>
+    </div>
+    <script>
+        // JavaScript to add active class to the selected navbar item
+        const navLinks = document.querySelectorAll('nav a');
+
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.forEach(link => link.classList.remove('active'));
+                link.classList.add('active');
+            });
+        });
+    </script>
+</body>
+</html>
